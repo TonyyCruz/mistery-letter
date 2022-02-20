@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  background-color: rgb(241, 238, 234);
+}
+
+#header {
+  text-align: center;
+}
+
+#header h1 {
+  background-color:rgb(206, 189, 168);
+  padding: 30px;
+}
+
+main {
+  margin: 50px;
+}
+#carta-texto {
+  margin-left: 40%;
+  display: inline-block;
+}
+
+#criar-carta {
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#carta-gerada {
+  text-align: center;
+  font-size: 100px;
+  background-color: blue;
+  display: inline-block;
+}
