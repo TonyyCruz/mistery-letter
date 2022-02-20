@@ -2,10 +2,18 @@ const botaoCriar = document.querySelector('#criar-carta');
 const entradaTexto = document.querySelector('#carta-texto');
 const cartaSaida = document.querySelector('#carta-gerada');
 
+function checarTesto(frase) {
+  for (let i = 0; i < frase.length; i += 1) {
+    if (frase[i] === ' ' || frase[i] === '') {
+      cartaSaida.innerText = 'Por favor, digite o conteúdo da carta.';
+      break;
+    }
+  }
+}
+
 function limparCartas() {
   const frase = cartaSaida.children.length;
   for (let i = 0; i < frase; i += 1) {
-    console.log(i);
     cartaSaida.removeChild(cartaSaida.children[0]);
   }
 }
@@ -39,7 +47,8 @@ function corDaCarta() {
 // Botão que gera as cartas <===
 botaoCriar.addEventListener('click', function() {
   const frase = entradaTexto.value.split(' ');
-  limparCartas()
+  checarTesto(frase);
+  limparCartas();
   adicionaSpan(frase);
   corDaCarta();
 });
