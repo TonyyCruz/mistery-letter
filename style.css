@@ -28,6 +28,6 @@ main {
 #carta-gerada {
   text-align: center;
   font-size: 100px;
-  background-color: blue;
   display: inline-block;
+  border-radius: 10px;
 }

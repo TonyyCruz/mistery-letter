@@ -2,11 +2,20 @@ const botaoCriar = document.querySelector('#criar-carta');
 const entradaTexto = document.querySelector('#carta-texto');
 const cartaSaida = document.querySelector('#carta-gerada');
 
+function limparCartas() {
+  const frase = cartaSaida.children.length;
+  for (let i = 0; i < frase; i += 1) {
+    console.log(i);
+    cartaSaida.removeChild(cartaSaida.children[0]);
+  }
+}
+
 // Cria um span para cada palavra <===
 function adicionaSpan(frase) {
-  for (let key of frase) {
+  for (let i = 0; i < frase.length; i += 1) {
     let card = document.createElement('span');
-    card.innerText = key;
+    card.innerText = frase[i];
+    card.id = i;
     cartaSaida.appendChild(card);
   }
 }
@@ -21,14 +30,16 @@ function corAleatoria() {
 function corDaCarta() {
   const frase = cartaSaida.children;
   for (let i = 0; i < frase.length; i += 1) {
-    frase[i].backgroundColor = `#${corAleatoria()}`;
+    document.getElementById(i).style.backgroundColor = `#${corAleatoria()}`;
+    document.getElementById(i).style.margin = '10px';
+    document.getElementById(i).style.borderRadius = '10px';
   }
 }
 
 // Botão que gera as cartas <===
 botaoCriar.addEventListener('click', function() {
   const frase = entradaTexto.value.split(' ');
-  console.log(frase);
+  limparCartas()
   adicionaSpan(frase);
   corDaCarta();
 });
